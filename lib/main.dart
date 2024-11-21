@@ -49,33 +49,56 @@ class MyApp extends StatelessWidget {
                         ),
                         child: Stack(
                           children: [
+                            // Positioned(
+                            //   bottom: 0,
+                            //   left: padding,
+                            //   child: SvgPicture.asset(Assets.dayClouds,
+                            //       width: width * (386 / 369)),
+                            // ),
+                            // Positioned(
+                            //   top: 0,
+                            //   left: 0,
+                            //   child: SvgPicture.asset(
+                            //     Assets.dayCloudsbacks,
+                            //     width: width * (377 / 369),
+                            //   ),
+                            // ),
+                            // Positioned(
+                            //   left: 0,
+                            //   top: 0,
+                            //   child: SvgPicture.asset(
+                            //     Assets.dayRays,
+                            //     height: height,
+                            //   ),
+                            // ),
+                            // Positioned(
+                            //     left: padding,
+                            //     top: padding,
+                            //     child: SvgPicture.asset(
+                            //       Assets.daySun,
+                            //       height: height * 120 / 145,
+                            //     )),
                             Positioned(
-                              bottom: 0,
-                              left: padding,
-                              child: SvgPicture.asset(Assets.dayClouds,
-                                  width: width * (386 / 369)),
-                            ),
-                            Positioned(
-                              top: 0,
-                              left: 0,
+                              left: width * (43 / 369),
+                              bottom: width * (23 / 369),
                               child: SvgPicture.asset(
-                                Assets.dayCloudsbacks,
-                                width: width * (377 / 369),
+                                Assets.nightStars,
+                                width: width * (142 / 369),
                               ),
                             ),
                             Positioned(
-                              left: 0,
+                              right: 0,
                               top: 0,
                               child: SvgPicture.asset(
-                                Assets.dayRays,
+                                Assets.nightRays,
                                 height: height,
                               ),
                             ),
                             Positioned(
-                                left: padding,
+                                right: padding,
                                 top: padding,
                                 child: SvgPicture.asset(
-                                  Assets.daySun,
+                                  Assets.nightMoon,
                                   height: height * 120 / 145,
                                 )),
                           ],
