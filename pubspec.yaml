@@ -19,6 +19,7 @@ dependencies:
   flutter_bloc: ^8.1.5
   bloc: ^8.1.4
   cupertino_icons: ^1.0.8
+  flutter_svg: ^2.0.15
 
 dev_dependencies:
   flutter_test:
@@ -34,4 +35,5 @@ flutter:
   assets:
     - assets/themes/light_theme.json
     - assets/themes/dark_theme.json
-    - assets/images/
+    - assets/images/day/
+    - assets/images/night/
