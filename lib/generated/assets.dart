@@ -8,6 +8,7 @@ class Assets {
   static const String dayCloudsbacks = 'assets/images/day/cloudsbacks.svg';
   static const String dayRays = 'assets/images/day/rays.svg';
   static const String daySun = 'assets/images/day/sun.svg';
+  static const String imagesRays = 'assets/images/rays.svg';
   static const String imagesSun = 'assets/images/sun.svg';
   static const String nightMoon = 'assets/images/night/moon.svg';
   static const String nightRays = 'assets/images/night/rays.svg';
