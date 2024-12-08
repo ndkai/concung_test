@@ -24,21 +24,10 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: Scaffold(
+        home: const Scaffold(
           backgroundColor: Colors.black,
           body: Center(
-            child: Row(
-              children: [
-                SvgPicture.asset(
-                  Assets.nightRays,
-                  height: 100,
-                ),
-                SvgPicture.asset(
-                  Assets.dayRays,
-                  height: 100,
-                )
-              ],
-            ),
+            child: AdaptiveButton(changeDayDuration: Duration(seconds: 2),),
           ),
         ),
       ),
