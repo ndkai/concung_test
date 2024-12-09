@@ -1,6 +1,6 @@
 import 'package:concung_test/config/theme/bloc/bloc.dart';
 import 'package:concung_test/config/theme/theme.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:concung_test/core/exception/exception_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -132,33 +132,25 @@ class _AdaptiveButtonState extends State<AdaptiveButton>
                 _hoverAnimationController.reverse();
               },
               onStartChangeDay: () {
-                try{
-                  _changeDayAnimationController.forward().then((_) {
-                    context
-                        .read<ThemeBloc>()
-                        .add(ToggleThemeEvent(type: ThemeType.dark));
-                    setState(() {
-                      isDay = false;
-                    });
+                _changeDayAnimationController.forward().then((_) {
+                  context
+                      .read<ThemeBloc>()
+                      .add(ToggleThemeEvent(type: ThemeType.dark));
+                  setState(() {
+                    isDay = false;
                   });
-                } catch(e){
-                  print("onStartChangeDay exception $e");
-                }
+                });
               },
               onReverseChangeDay: () async {
-                try{
-                  await _hoverAnimationController.reverse();
-                  _changeDayAnimationController.reverse().then((_) {
-                    context
-                        .read<ThemeBloc>()
-                        .add(ToggleThemeEvent(type: ThemeType.light));
-                    setState(() {
-                      isDay = true;
-                    });
+                await _hoverAnimationController.reverse();
+                _changeDayAnimationController.reverse().then((_) {
+                  context
+                      .read<ThemeBloc>()
+                      .add(ToggleThemeEvent(type: ThemeType.light));
+                  setState(() {
+                    isDay = true;
                   });
-                } catch(e){
-                  print("onReverseChangeDay exception $e");
-                }
+                });
 
               },
               changeDayAnimationController: _changeDayAnimationController,
@@ -226,7 +218,7 @@ class SunAndMoon extends StatelessWidget {
             },
             child: GestureDetector(
               onTap: (){
-                onStartChangeDay();
+                onStartChangeDay.safeCall();
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(height),
@@ -328,9 +320,9 @@ class CloudBack extends StatelessWidget {
     required this.hoverAnimation,
     required this.width,
     required this.padding,
-    Key? key,
+    super.key,
     required this.transformAnimation,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
