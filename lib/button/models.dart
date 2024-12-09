@@ -1,4 +1,0 @@
-enum DayType{
-  morning,
-  night
-}

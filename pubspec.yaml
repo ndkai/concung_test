@@ -20,7 +20,7 @@ dependencies:
   bloc: ^8.1.4
   cupertino_icons: ^1.0.8
   flutter_svg: ^2.0.15
-
+  get_it: ^7.6.8
 dev_dependencies:
   flutter_test:
     sdk: flutter

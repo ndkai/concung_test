@@ -6,9 +6,7 @@ import '../theme.dart';
 abstract class ThemeEvent {}
 
 class ToggleThemeEvent extends ThemeEvent{
-  final ThemeType type;
+  final ThemeType? type;
 
-  ToggleThemeEvent(this.type);
-
-  List<Object?> get props => [type];
+  ToggleThemeEvent({this.type});
 }

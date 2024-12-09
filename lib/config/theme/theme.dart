@@ -23,7 +23,7 @@ class AppTheme {
     final darkThemeJson = jsonDecode(darkThemeStr);
     lightTheme = ThemeDecoder.decodeThemeData(lightThemeJson)!;
     darkTheme = ThemeDecoder.decodeThemeData(darkThemeJson)!;
-
+    initCurrentTheme(lightTheme);
     return this;
   }
 
