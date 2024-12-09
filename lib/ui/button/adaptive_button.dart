@@ -86,7 +86,7 @@ class _AdaptiveButtonState extends State<AdaptiveButton>
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(999),
+      borderRadius: BorderRadius.circular(width),
       child: AnimatedBuilder(
         animation: _changeDayAnimation,
         builder: (_, child) {
@@ -190,14 +190,14 @@ class SunAndMoon extends StatelessWidget {
     required this.hoverAnimation,
     required this.height,
     required this.padding,
-    Key? key,
+    super.key,
     required this.transformAnimation,
     required this.onDayHoverStart,
     required this.onDayHoverExit,
     required this.onStartChangeDay,
     required this.onReverseChangeDay,
     required this.changeDayAnimationController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -217,27 +217,24 @@ class SunAndMoon extends StatelessWidget {
         return Positioned(
           left: padding + hoverValue + transformAnimation.value,
           top: padding,
-          child: Visibility(
-            visible: true,
-            child: MouseRegion(
-              onEnter: (_){
-                onDayHoverStart();
+          child: MouseRegion(
+            onEnter: (_){
+              onDayHoverStart();
+            },
+            onExit: (_){
+              onDayHoverExit();
+            },
+            child: GestureDetector(
+              onTap: (){
+                onStartChangeDay();
               },
-              onExit: (_){
-                onDayHoverExit();
-              },
-              child: GestureDetector(
-                onTap: (){
-                  onStartChangeDay();
-                },
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(9999),
-                  child: Stack(
-                    children: [
-                      _buildSun(size),
-                      _buildMoon(size)
-                    ],
-                  ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(height),
+                child: Stack(
+                  children: [
+                    _buildSun(size),
+                    _buildMoon(size)
+                  ],
                 ),
               ),
             ),
