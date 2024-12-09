@@ -153,7 +153,7 @@ class _AdaptiveButtonState extends State<AdaptiveButton>
                 });
 
               },
-              changeDayAnimationController: _changeDayAnimationController,
+              changeDayAnimationController: _changeDayAnimationController, hoverAnimationController: _hoverAnimationController,
             ),
             Stars(
               transformAnimation: _changeDayAnimation,
@@ -169,6 +169,7 @@ class _AdaptiveButtonState extends State<AdaptiveButton>
 
 class SunAndMoon extends StatelessWidget {
   final AnimationController changeDayAnimationController;
+  final AnimationController hoverAnimationController;
   final Animation<double> hoverAnimation;
   final Animation<double> transformAnimation;
   final double height;
@@ -188,7 +189,7 @@ class SunAndMoon extends StatelessWidget {
     required this.onDayHoverExit,
     required this.onStartChangeDay,
     required this.onReverseChangeDay,
-    required this.changeDayAnimationController,
+    required this.changeDayAnimationController, required this.hoverAnimationController,
   });
 
   @override
@@ -211,10 +212,14 @@ class SunAndMoon extends StatelessWidget {
           top: padding,
           child: MouseRegion(
             onEnter: (_){
+
               onDayHoverStart();
             },
             onExit: (_){
+
+
               onDayHoverExit();
+
             },
             child: GestureDetector(
               onTap: (){
